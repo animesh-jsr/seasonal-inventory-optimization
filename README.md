@@ -64,50 +64,42 @@ The dataset contains **20 seasonal apparel products**.
 # 📐 Mathematical Model
 
 The project follows the classical **Newsvendor Model**.
+## 📐 Mathematical Model
 
-### Overage Cost
+The project follows the classical **Newsvendor Inventory Model** to determine the optimal order quantity for each seasonal product under uncertain demand.
 
-\[
-C_o = c-v
-\]
+| Metric | Formula | Description |
+|--------|---------|-------------|
+| **Overage Cost (Co)** | **Co = Purchase Cost − Salvage Value** | Cost incurred for each unsold unit at the end of the season. |
+| **Underage Cost (Cu)** | **Cu = Retail Price − Purchase Cost** | Profit lost when customer demand exceeds available inventory. |
+| **Critical Ratio (CR)** | **CR = Cu / (Cu + Co)** | Represents the probability of meeting customer demand while balancing overstock and stockout costs. |
+| **Z-Value** | **Z = NORM.S.INV(CR)** | Standard normal value corresponding to the calculated critical ratio. |
+| **Optimal Order Quantity (Q\*)** | **Q\* = μ + Z × σ** | Determines the inventory level that maximizes expected profit. |
 
----
+### Where
 
-### Underage Cost
-
-\[
-C_u = r-c
-\]
-
----
-
-### Critical Ratio
-
-\[
-CR=\frac{C_u}{C_u+C_o}
-\]
-
----
-
-### Z-Value
-
-Obtained using the inverse cumulative normal distribution.
+| Symbol | Meaning |
+|---------|---------|
+| **μ (Mu)** | Mean (Expected) Demand |
+| **σ (Sigma)** | Standard Deviation of Demand |
+| **c** | Purchase Cost per Unit |
+| **r** | Retail Selling Price |
+| **v** | Salvage Value per Unit |
+| **Co** | Overage Cost |
+| **Cu** | Underage Cost |
+| **CR** | Critical Ratio |
+| **Z** | Standard Normal Score |
+| **Q\*** | Optimal Order Quantity |
 
 ---
 
-### Optimal Order Quantity
+### Model Assumptions
 
-\[
-Q^*=\mu+z\sigma
-\]
-
-where
-
-- μ = Mean Demand
-- σ = Standard Deviation
-- z = Standard Normal Value
-
----
+- Demand follows a **Normal Distribution**.
+- Inventory is ordered **once** before the selling season.
+- No replenishment is allowed during the season.
+- Unsold inventory is liquidated at the salvage value.
+- The objective is to maximize expected profit while balancing the risks of overstocking and stockouts.
 
 # ⚙️ Technologies Used
 
