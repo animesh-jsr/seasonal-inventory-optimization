@@ -61,12 +61,10 @@ The dataset contains **20 seasonal apparel products**.
 
 ---
 
-# 📐 Mathematical Model
 
-The project follows the classical **Newsvendor Model**.
 ## 📐 Mathematical Model
 
-The project follows the classical **Newsvendor Inventory Model** to determine the optimal order quantity for each seasonal product under uncertain demand.
+The project follows the classical **Single period system** to determine the optimal order quantity for each seasonal product under uncertain demand.
 
 | Metric | Formula | Description |
 |--------|---------|-------------|
